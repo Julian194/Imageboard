@@ -1,0 +1,391 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  margin: 0;
+  background: #252323;
+}
+
+/* WEBSITE CONTAINERS*/
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 30px;
+  max-width: 1080px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+/* NAVBAR */
+
+nav {
+  filter: grayscale(0.5);
+  margin-bottom: 30px;
+  height: 42px;
+  background: #C3853D;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav ul {
+  padding: 5px;
+  margin: 0;
+  display: flex;
+  text-decoration: none;
+  list-style: none;
+}
+
+nav a {
+  font-family: 'Pacifico', cursive;
+  margin-right: 5px;
+  font-weight: 100;
+  padding: 5px;
+  font-size: 1.7rem;
+  text-decoration: none;
+  color: #282722;
+}
+
+nav a:hover {
+  color: #383737;
+}
+
+/* EVERYTHING RELATED TO THE MAIN IMAGE BOARD*/
+
+.title {
+  color: #fff;
+  margin: 0;
+  font-weight: 100;
+}
+
+.img-container {
+  text-align: center;
+  width: 270px;
+  height: 270px;
+}
+
+.img-container:hover {
+  border: 1px solid #fff;
+  border-radius: 5px;
+  opacity: 0.9;
+  transform: scale(1.2);
+  z-index: 1000;
+}
+
+/*Link wrapping image*/
+.img-wrap img {
+  margin-bottom: 5px;
+  cursor: zoom-in;
+  border-radius: 5px;
+  max-width: 100%;
+  height: 90%;
+  object-fit: cover;
+}
+
+/*BUTTON TO SHOW MORE IMAGES*/
+
+#more-button {
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #d3d3d3;
+  font-size: 1.4rem;
+  font-weight: 100;
+  background: #fff;
+  color: #565554;
+  padding: 7px 20px 7px 20px;
+  border-radius: 28px;
+}
+
+#more-button:hover {
+  border: #252323;
+  cursor: pointer;
+}
+
+@media only screen and (min-width : 320px) and (max-width : 667px) {
+
+  .container {
+    flex-wrap: wrap;
+    flex-direction: column;
+    max-width: 300px;
+  }
+
+  .grid-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+  }
+
+  .img-container {
+    margin-bottom: 30px;
+  }
+
+  .title {
+    font-weight: 300;
+    font-size: 1rem;
+  }
+
+  nav {
+    height: 60px;
+    justify-content: center;
+  }
+
+  nav a {
+    font-size: 2rem;
+  }
+
+  .img-container:hover {
+    transform: scale(1);
+    border: none;
+  }
+
+}
+
+/*EVERYTHING RELATED TO THE SINGLE IMAGE VIEW*/
+
+.container-flex {
+  max-width: 1080px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.container-image{
+  margin-right: 3px;
+}
+
+.img-crop {
+  max-height: 100%;
+  height: 450px;
+  width: 550px;
+  object-fit: cover;
+}
+
+.comments {
+  height: 500px;
+  width: 400px;
+  background: #fff;
+  overflow-y: scroll;
+}
+
+.comment {
+  font-size: 1.3rem;
+  margin: 0;
+  padding: 5px 0 5px 10px;
+  color: #fff;
+  background: rgba(106, 98, 98, 0.5);
+}
+
+/*Give any other comment a different color*/
+.comment:nth-of-type(odd) {
+  background: rgba(146, 140, 140, 0.5)
+}
+
+#details {
+  height: 120px;
+  width: 400px;
+  margin-bottom: 3px;
+  margin-top: 0;
+  background: #fff;
+  line-height: 18px;
+}
+
+h3 {
+  margin: 0;
+}
+
+#username {
+  padding-top: 5px;
+  padding-left: 7px;
+  font-size: 1.6rem;
+  color: #252323;
+}
+
+#description {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#comment-form {
+  width: 550px;
+  height: 170px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #C4BBBA;
+}
+
+#comment-form textarea {
+  background: transparent;
+  font-family: 'Roboto', sans-serif;
+  color: #6A6262;
+  padding: 5px;
+  font-size: 1.2rem;
+  width: 550px;
+  height: 50px;
+  border: none;
+  resize: none;
+  font-weight: 100;
+}
+
+#comment-form textarea:last-of-type {
+  margin-bottom: 15px;
+  height: 30px;
+}
+
+#comment-form button {
+  background: #252323;
+  padding: 8px 15px 8px 15px;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  font-weight: 100;
+}
+
+@media only screen and (min-width : 320px) and (max-width : 667px) {
+
+  .container-flex {
+    width: 300px;
+    flex-direction: column;
+  }
+
+  .img-crop, .comments {
+    width: 300px;
+    height: 250px;
+  }
+
+  #comment-form, #comment-form textarea  {
+    width: 300px;
+    margin-bottom: 3px;
+  }
+
+  #comment-form textarea{
+    color: #252323;
+    font-weight: 300;
+  }
+
+  #comment-form button {
+    font-size: 1.2rem;
+    font-weight: 100;
+    margin-top: 10px;
+  }
+
+  #username, #description, #details{
+    font-size: 1rem;
+    width: 300px;
+  }
+
+  .comments{
+    height: 200px;
+    margin-bottom: 10px;
+  }
+
+  .comment {
+    font-size: 1rem;
+    height: 30px;
+  }
+
+}
+
+/*FORM TO UPLOAD IMAGES*/
+
+h2 {
+  text-align: center;
+  font-size: 2.3rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #C4BBBA;
+  font-weight: 100;
+}
+
+#upload-form {
+  width: 500px;
+  height: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  background: #C4BBBA;
+}
+
+#file {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  border: 1.5px dashed #fff;
+  border-radius: 5px;
+  padding: 8px;
+  margin-bottom: 15px;
+}
+
+.input {
+  font-family: 'Roboto', sans-serif;
+  padding: 5px;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  width: 400px;
+  border-radius: 5px;
+  border: none;
+  font-weight: lighter;
+}
+
+#upload-form textarea {
+  font-family: 'Roboto', sans-serif;
+  padding: 5px;
+  font-size: 1.2rem;
+  width: 400px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: none;
+  resize: none;
+  font-weight: 100;
+}
+
+#upload-form button {
+  background: #252323;
+  padding: 8px 15px 8px 15px;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  font-weight: 100;
+}
+
+@media only screen and (min-width : 320px) and (max-width : 667px) {
+
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 300;
+  }
+
+  #upload-form {
+    width: 300px;
+    height: 350px;
+    margin-bottom: 30px;
+  }
+
+  .input,#upload-form textarea,#file  {
+    width: 250px;
+  }
+
+  #file{
+    font-size: .7rem;
+  }
+
+}

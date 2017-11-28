@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,100" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <title>Coffee Board</title>
+</head>
+
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="#home">Coffeeboard</a></li>
+      <li><a href="#upload"><i class="fa fa-cloud-upload upload"></i></a></li>
+    </ul>
+  </nav>
+
+  <!-- This is where all the content will go -->
+  <main></main>
+  <!--  -->
+
+  <template id="image">
+      <div class="container">
+        <div class="grid-container">
+          {{#each images}}
+          <div class="img-container">
+            <a href="#image/{{this.id}}"class="img-wrap">
+              <img src="https://s3.amazonaws.com/imageboard-nutmeg/{{this.image}}">
+            </a>
+            <h5 class="title">{{this.title}}  |  @{{this.username}}</h5>
+          </div>
+          {{/each}}
+        </div>
+        <button id="more-button">More</button>
+      </div>
+    </template>
+
+
+  <template id="upload">
+      <div class="container">
+        <h2>Upload your new image</h2>
+        <form id="upload-form">
+          <input type="file" id="file">
+          <input class="input" type="text" name="username" placeholder="Username">
+          <input class="input" type="text" name="title" placeholder="Title">
+          <textarea name="description" placeholder="Description"></textarea>
+          <button class="button" type="button" id="upload-button"><i class="fa fa-cloud-upload"></i> UPLOAD</button>
+        </form>
+      </div>
+    </template>
+
+
+  <template id="comments">
+    <div class="container-flex">
+      <div class="container-image">
+        {{#each imageData}}
+          <img class="img-crop" src="https://s3.amazonaws.com/imageboard-nutmeg/{{this.image}}"/>
+        {{/each}}
+        <form id="comment-form">
+          <textarea name="comment" id="comment"placeholder="Type your comment here"></textarea>            <textarea name="username" id="comment"placeholder="Username"></textarea>
+          <button type="button" id="post-button">Post Comment</button>
+        </form>
+      </div>
+
+      <div class="comment-container">
+        <div id="details">
+          {{#each imageData}}
+          <h3 id="username"><i class="fa fa-user-circle"></i> {{this.username}}</h3>
+          <p id="description">{{this.description}}</p>
+          {{/each}}
+        </div>
+        <div class="comments">
+          {{#each commentData}}
+          <p class="comment">{{this.comment_text}} | <i class="fa fa-user-circle"></i>  {{this.username}} </p>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </template>
+
+
+  <script src="./js/handlebars.min.js" charset="utf-8"></script>
+  <script src="./js/jquery-3.1.1.min.js" charset="utf-8"></script>
+  <script src="./js/underscore-min.js" charset="utf-8"></script>
+  <script src="./js/backbone-min.js" charset="utf-8"></script>
+  <script src="./js/script.js" charset="utf-8"></script>
+
+</body>
+
+</html>
